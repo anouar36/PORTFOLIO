@@ -188,7 +188,17 @@ export default function Portfolio() {
               </motion.div>
 
               <motion.div variants={fadeInUp} className="flex space-x-4">
-                <Button className="bg-green-500 hover:bg-green-600">
+                <Button 
+                  className="bg-green-500 hover:bg-green-600"
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/Anouar_Professional_CV.pdf';
+                    link.download = 'Anouar_Ech-Charai_CV.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                >
                   <Download className="mr-2 h-4 w-4" />
                   Download CV
                 </Button>
