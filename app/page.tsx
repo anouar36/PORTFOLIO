@@ -47,7 +47,7 @@ const projects = [
   {
     title: "E-Commerce Laravel Platform",
     description: "Full-stack e-commerce solution with admin dashboard, payment integration, and inventory management",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/ecommerce-laravel.svg",
     tech: ["Laravel", "PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     github: "https://github.com/anouar36",
     live: "#",
@@ -55,7 +55,7 @@ const projects = [
   {
     title: "React Task Management App",
     description: "Modern task management application with real-time updates, drag-and-drop functionality, and team collaboration",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/react-task-manager.svg",
     tech: ["React", "Node.js", "TypeScript", "PostgreSQL", "Tailwind"],
     github: "https://github.com/anouar36",
     live: "#",
@@ -63,7 +63,7 @@ const projects = [
   {
     title: "Next.js Portfolio Website",
     description: "Professional portfolio website with modern animations, responsive design, and dark mode support",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/nextjs-portfolio.svg",
     tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
     github: "https://github.com/anouar36",
     live: "#",
@@ -71,7 +71,7 @@ const projects = [
   {
     title: "Java Desktop Application",
     description: "Cross-platform desktop application demonstrating OOP principles and design patterns",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/projects/java-desktop-app.svg",
     tech: ["Java", "JavaFX", "MySQL", "Git"],
     github: "https://github.com/anouar36",
     live: "#",
@@ -423,8 +423,9 @@ export default function Portfolio() {
                       <Image
                         src={project.image || "/placeholder.svg"}
                         alt={project.title}
-                        width={300}
-                        height={200}
+                        width={400}
+                        height={250}
+                        unoptimized
                         className="w-full h-48 object-cover transition-transform hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
