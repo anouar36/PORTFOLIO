@@ -10,6 +10,7 @@ import ParticleBackground from "@/components/ui/particle-background"
 import FloatingElement from "@/components/ui/floating-element"
 import AnimatedCodeBlock from "@/components/ui/animated-code-block"
 import ColorShiftBackground from "@/components/ui/color-shift-background"
+import ClientWrapper from "@/components/ui/client-wrapper"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -115,7 +116,9 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white font-mono">
-      <ParticleBackground />
+      <ClientWrapper>
+        <ParticleBackground />
+      </ClientWrapper>
       
       {/* Navigation */}
       <motion.nav

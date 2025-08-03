@@ -21,7 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={jetbrainsMono.variable}>
-      <body className={jetbrainsMono.className}>{children}</body>
+      <body 
+        className={jetbrainsMono.className}
+        suppressHydrationWarning={true}
+      >
+        {children}
+      </body>
     </html>
   )
 }
