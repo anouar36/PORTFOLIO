@@ -29,39 +29,50 @@ const skills = [
   { name: "PHP", icon: "/icons/php.svg", color: "bg-purple-600" },
   { name: "Laravel", icon: "/icons/laravel.svg", color: "bg-red-500" },
   { name: "JavaScript", icon: "/icons/javascript.svg", color: "bg-yellow-500" },
+  { name: "TypeScript", icon: "/icons/typescript.svg", color: "bg-blue-600" },
   { name: "React", icon: "/icons/react.svg", color: "bg-blue-500" },
+  { name: "Next.js", icon: "/icons/nextjs.svg", color: "bg-gray-900" },
   { name: "Node.js", icon: "/icons/nodejs.svg", color: "bg-green-600" },
   { name: "MySQL", icon: "/icons/mysql.svg", color: "bg-blue-700" },
   { name: "PostgreSQL", icon: "/icons/postgresql.svg", color: "bg-blue-800" },
   { name: "Git", icon: "/icons/git.svg", color: "bg-orange-500" },
   { name: "HTML", icon: "/icons/html.svg", color: "bg-orange-600" },
   { name: "CSS", icon: "/icons/css.svg", color: "bg-blue-400" },
+  { name: "Tailwind", icon: "/icons/tailwind.svg", color: "bg-cyan-500" },
   { name: "Java", icon: "/icons/java.svg", color: "bg-red-600" },
   { name: "C", icon: "/icons/c.svg", color: "bg-gray-600" },
 ]
 
 const projects = [
   {
-    title: "E-Commerce Laravel App",
-    description: "Full-stack e-commerce solution built with Laravel and MySQL",
+    title: "E-Commerce Laravel Platform",
+    description: "Full-stack e-commerce solution with admin dashboard, payment integration, and inventory management",
     image: "/placeholder.svg?height=200&width=300",
-    tech: ["Laravel", "PHP", "MySQL", "HTML", "CSS"],
+    tech: ["Laravel", "PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     github: "https://github.com/anouar36",
     live: "#",
   },
   {
-    title: "React Task Manager",
-    description: "Task management application with React and Node.js backend",
+    title: "React Task Management App",
+    description: "Modern task management application with real-time updates, drag-and-drop functionality, and team collaboration",
     image: "/placeholder.svg?height=200&width=300",
-    tech: ["React", "Node.js", "JavaScript", "PostgreSQL"],
+    tech: ["React", "Node.js", "TypeScript", "PostgreSQL", "Tailwind"],
     github: "https://github.com/anouar36",
     live: "#",
   },
   {
-    title: "Java Console Application",
-    description: "Console-based application demonstrating OOP principles in Java",
+    title: "Next.js Portfolio Website",
+    description: "Professional portfolio website with modern animations, responsive design, and dark mode support",
     image: "/placeholder.svg?height=200&width=300",
-    tech: ["Java", "C", "Git", "GitHub"],
+    tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
+    github: "https://github.com/anouar36",
+    live: "#",
+  },
+  {
+    title: "Java Desktop Application",
+    description: "Cross-platform desktop application demonstrating OOP principles and design patterns",
+    image: "/placeholder.svg?height=200&width=300",
+    tech: ["Java", "JavaFX", "MySQL", "Git"],
     github: "https://github.com/anouar36",
     live: "#",
   },
@@ -354,7 +365,7 @@ export default function Portfolio() {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-6"
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
               >
                 {skills.map((skill, index) => (
                   <motion.div
