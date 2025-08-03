@@ -26,18 +26,18 @@ const staggerContainer = {
 }
 
 const skills = [
-  { name: "PHP", icon: "🐘", color: "bg-purple-600" },
-  { name: "Laravel", icon: "🔥", color: "bg-red-500" },
-  { name: "JavaScript", icon: "JS", color: "bg-yellow-500" },
-  { name: "React", icon: "⚛️", color: "bg-blue-500" },
-  { name: "Node.js", icon: "🟢", color: "bg-green-600" },
-  { name: "MySQL", icon: "🗄️", color: "bg-blue-700" },
-  { name: "PostgreSQL", icon: "🐘", color: "bg-blue-800" },
-  { name: "Git", icon: "📝", color: "bg-orange-500" },
-  { name: "HTML", icon: "🌐", color: "bg-orange-600" },
-  { name: "CSS", icon: "🎨", color: "bg-blue-400" },
-  { name: "Java", icon: "☕", color: "bg-red-600" },
-  { name: "C", icon: "C", color: "bg-gray-600" },
+  { name: "PHP", icon: "/icons/php.svg", color: "bg-purple-600" },
+  { name: "Laravel", icon: "/icons/laravel.svg", color: "bg-red-500" },
+  { name: "JavaScript", icon: "/icons/javascript.svg", color: "bg-yellow-500" },
+  { name: "React", icon: "/icons/react.svg", color: "bg-blue-500" },
+  { name: "Node.js", icon: "/icons/nodejs.svg", color: "bg-green-600" },
+  { name: "MySQL", icon: "/icons/mysql.svg", color: "bg-blue-700" },
+  { name: "PostgreSQL", icon: "/icons/postgresql.svg", color: "bg-blue-800" },
+  { name: "Git", icon: "/icons/git.svg", color: "bg-orange-500" },
+  { name: "HTML", icon: "/icons/html.svg", color: "bg-orange-600" },
+  { name: "CSS", icon: "/icons/css.svg", color: "bg-blue-400" },
+  { name: "Java", icon: "/icons/java.svg", color: "bg-red-600" },
+  { name: "C", icon: "/icons/c.svg", color: "bg-gray-600" },
 ]
 
 const projects = [
@@ -223,7 +223,7 @@ export default function Portfolio() {
                   <div className="w-80 h-80 rounded-full bg-gradient-to-r from-green-400 to-blue-500 p-1">
                     <div className="w-full h-full rounded-full bg-gray-900 p-4">
                       <Image
-                        src="/placeholder.svg?height=300&width=300"
+                        src="anouar.png"
                         alt="Anouar Ech-Charai"
                         width={300}
                         height={300}
@@ -364,10 +364,14 @@ export default function Portfolio() {
                     whileTap={{ scale: 0.95 }}
                     className="bg-gray-800 p-6 rounded-lg border border-gray-700 text-center hover:border-green-500 transition-colors"
                   >
-                    <div
-                      className={`w-16 h-16 ${skill.color} rounded-full flex items-center justify-center mx-auto mb-4 text-2xl`}
-                    >
-                      {skill.icon}
+                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                      <Image
+                        src={skill.icon}
+                        alt={skill.name}
+                        width={48}
+                        height={48}
+                        className="rounded-lg"
+                      />
                     </div>
                     <h3 className="font-semibold">{skill.name}</h3>
                   </motion.div>
