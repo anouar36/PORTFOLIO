@@ -88,7 +88,7 @@ const experience = [
   },
   {
     title: "University Student",
-    company: "UMS6P",
+    company: "UM6P",
     period: "2022 - Present",
     description: "Pursuing higher education while developing programming skills",
   },
@@ -186,7 +186,7 @@ export default function Portfolio() {
                 </div>
                 <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700">
                   <h4 className="text-green-400 font-semibold mb-2">University</h4>
-                  <p className="text-xl font-bold">UMS6P</p>
+                  <p className="text-xl font-bold">UM6P</p>
                 </div>
               </motion.div>
 
@@ -245,13 +245,13 @@ export default function Portfolio() {
                   className="relative"
                 >
                   <div className="w-80 h-80 rounded-full bg-gradient-to-r from-green-400 to-blue-500 p-1">
-                    <div className="w-full h-full rounded-full bg-gray-900 p-4">
+                    <div className="w-full h-full rounded-full bg-gray-900 overflow-hidden">
                       <Image
                         src="anouar.png"
                         alt="Anouar Ech-Charai"
-                        width={300}
-                        height={300}
-                        className="rounded-full object-cover"
+                        width={320}
+                        height={320}
+                        className="w-full h-full rounded-full object-cover"
                       />
                     </div>
                   </div>
@@ -328,7 +328,8 @@ export default function Portfolio() {
                 className="space-y-6"
               >
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  I'm a passionate Full Stack Developer student at YouCode and UMS6P. I specialize in modern web
+                  I'm a passionate Full Stack Developer student at YouCode and UM
+                  6P. I specialize in modern web
                   technologies including PHP, Laravel, JavaScript, React, and Node.js. I love turning complex problems
                   into simple, beautiful solutions.
                 </p>

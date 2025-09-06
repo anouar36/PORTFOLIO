@@ -10,7 +10,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Anouar Ech-Charai - Full Stack Developer",
-  description: "Portfolio of Anouar Ech-Charai, a passionate Full Stack Developer from YouCode and UMS6P",
+  description: "Portfolio of Anouar Ech-Charai, a passionate Full Stack Developer from YouCode and UM6P",
     generator: 'v0.dev'
 }
 
