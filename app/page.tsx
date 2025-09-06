@@ -194,9 +194,12 @@ export default function Portfolio() {
                 <Button 
                   className="bg-green-500 hover:bg-green-600"
                   onClick={() => {
+                    // إنشاء رابط التحميل
                     const link = document.createElement('a');
                     link.href = '/Anouar_Professional_CV.pdf';
                     link.download = 'Anouar_Ech-Charai_CV.pdf';
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
