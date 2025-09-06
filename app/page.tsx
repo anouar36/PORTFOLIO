@@ -9,6 +9,7 @@ import Image from "next/image"
 import ParticleBackground from "@/components/ui/particle-background"
 import FloatingElement from "@/components/ui/floating-element"
 import AnimatedCodeBlock from "@/components/ui/animated-code-block"
+import { downloadCV } from "@/lib/download-utils"
 import ColorShiftBackground from "@/components/ui/color-shift-background"
 import ClientWrapper from "@/components/ui/client-wrapper"
 
@@ -193,16 +194,14 @@ export default function Portfolio() {
               <motion.div variants={fadeInUp} className="flex space-x-4">
                 <Button 
                   className="bg-green-500 hover:bg-green-600"
-                  onClick={() => {
-                    // إنشاء رابط التحميل
-                    const link = document.createElement('a');
-                    link.href = '/Anouar_Professional_CV.pdf';
-                    link.download = 'Anouar_Ech-Charai_CV.pdf';
-                    link.target = '_blank';
-                    link.rel = 'noopener noreferrer';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
+                  onClick={async () => {
+                    try {
+                      await downloadCV();
+                    } catch (error) {
+                      console.error('Failed to download CV:', error);
+                      // Show user-friendly error message if needed
+                      alert('Sorry, there was an issue downloading the CV. Please try again or contact me directly.');
+                    }
                   }}
                 >
                   <Download className="mr-2 h-4 w-4" />
