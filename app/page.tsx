@@ -193,14 +193,39 @@ export default function Portfolio() {
 
               <motion.div variants={fadeInUp} className="flex space-x-4">
                 <Button 
-                  className="bg-green-500 hover:bg-green-600"
-                  onClick={async () => {
+                  className="bg-green-500 hover:bg-green-600 disabled:opacity-50"
+                  onClick={async (e) => {
+                    const button = e.currentTarget;
+                    const originalText = button.textContent || 'Download CV';
+                    
                     try {
+                      // Show loading state
+                      button.disabled = true;
+                      button.innerHTML = '<div class="flex items-center"><div class="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>Downloading...</div>';
+                      
                       await downloadCV();
+                      
+                      // Show success state briefly
+                      button.innerHTML = '<div class="flex items-center"><svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Downloaded!</div>';
+                      
+                      setTimeout(() => {
+                        button.disabled = false;
+                        button.innerHTML = originalText;
+                      }, 2000);
+                      
                     } catch (error) {
                       console.error('Failed to download CV:', error);
-                      // Show user-friendly error message if needed
-                      alert('Sorry, there was an issue downloading the CV. Please try again or contact me directly.');
+                      
+                      // Show error state
+                      button.innerHTML = '<div class="flex items-center"><svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>Failed</div>';
+                      
+                      setTimeout(() => {
+                        button.disabled = false;
+                        button.innerHTML = originalText;
+                      }, 3000);
+                      
+                      // Show user-friendly error message
+                      alert('Sorry, there was an issue downloading the CV. Please try again or contact me directly at anouarechcharai@gmail.com');
                     }
                   }}
                 >
@@ -249,7 +274,7 @@ export default function Portfolio() {
                   <div className="w-80 h-80 rounded-full bg-gradient-to-r from-green-400 to-blue-500 p-1">
                     <div className="w-full h-full rounded-full bg-gray-900 overflow-hidden">
                       <Image
-                        src="anouar.png"
+                        src="/IMG_0144__1_-removebg-preview.png"
                         alt="Anouar Ech-Charai"
                         width={320}
                         height={320}

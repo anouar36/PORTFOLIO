@@ -16,12 +16,27 @@ export async function downloadFile(url: string, options: DownloadOptions): Promi
   try {
     console.log(`Attempting to download from: ${url}`);
     
+    // Add a timeout to the fetch request
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+    
     // Fetch the file
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        'Accept': 'application/pdf,*/*'
+      }
+    });
+    
+    clearTimeout(timeoutId);
     
     if (!response.ok) {
       throw new Error(`Failed to fetch file: ${response.status} ${response.statusText}`);
     }
+    
+    // Check content type
+    const contentType = response.headers.get('content-type');
+    console.log(`Content-Type: ${contentType}`);
     
     // Check if response has content
     const contentLength = response.headers.get('content-length');
@@ -37,6 +52,7 @@ export async function downloadFile(url: string, options: DownloadOptions): Promi
     }
     
     console.log(`Downloaded blob size: ${blob.size} bytes`);
+    console.log(`Blob type: ${blob.type}`);
     
     // Create download link
     const downloadUrl = window.URL.createObjectURL(blob);
@@ -84,11 +100,48 @@ export async function downloadFile(url: string, options: DownloadOptions): Promi
 }
 
 /**
- * Downloads the CV file specifically
+ * Downloads the CV file specifically with multiple fallback methods
  */
 export async function downloadCV(): Promise<void> {
-  return downloadFile('/api/download-cv', {
-    filename: 'Anouar_Ech-Charai_CV.pdf',
-    fallbackUrl: '/Anouar_Professional_CV.pdf'
-  });
+  const filename = 'Anouar_Ech-Charai_CV.pdf';
+  
+  // Method 1: Try API route first
+  try {
+    console.log('Trying method 1: API route');
+    await downloadFile('/api/download-cv', { filename });
+    return;
+  } catch (error) {
+    console.warn('Method 1 failed:', error);
+  }
+  
+  // Method 2: Try direct file access
+  try {
+    console.log('Trying method 2: Direct file access');
+    await downloadFile('/Anouar_Professional_CV.pdf', { filename });
+    return;
+  } catch (error) {
+    console.warn('Method 2 failed:', error);
+  }
+  
+  // Method 3: Force download with window.open
+  try {
+    console.log('Trying method 3: Force download');
+    const link = document.createElement('a');
+    link.href = '/Anouar_Professional_CV.pdf';
+    link.download = filename;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    
+    // Force click
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    console.log('Method 3 executed successfully');
+    return;
+  } catch (error) {
+    console.error('Method 3 failed:', error);
+  }
+  
+  throw new Error('All download methods failed');
 }
