@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': 'attachment; filename="Anouar_Ech-Charai_CV.pdf"',
+        'Content-Disposition': 'attachment; filename="/Professional_CV_Resume.pdf"',
         'Content-Length': fileBuffer.length.toString(),
         'Cache-Control': 'no-cache',
       },

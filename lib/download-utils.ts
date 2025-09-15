@@ -103,7 +103,7 @@ export async function downloadFile(url: string, options: DownloadOptions): Promi
  * Downloads the CV file specifically with multiple fallback methods
  */
 export async function downloadCV(): Promise<void> {
-  const filename = 'Anouar_Ech-Charai_CV.pdf';
+  const filename = '/Professional_CV_Resume.pdf';
   
   // Method 1: Try API route first
   try {
@@ -117,7 +117,7 @@ export async function downloadCV(): Promise<void> {
   // Method 2: Try direct file access
   try {
     console.log('Trying method 2: Direct file access');
-    await downloadFile('/Anouar_Professional_CV.pdf', { filename });
+    await downloadFile('/Professional_CV_Resume.pdf', { filename });
     return;
   } catch (error) {
     console.warn('Method 2 failed:', error);

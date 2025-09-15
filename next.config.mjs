@@ -20,7 +20,7 @@ const nextConfig = {
           },
           {
             key: 'Content-Disposition',
-            value: 'attachment; filename="Anouar_Ech-Charai_CV.pdf"',
+            value: 'attachment; filename="/Professional_CV_Resume.pdf"',
           },
         ],
       },

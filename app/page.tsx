@@ -274,7 +274,7 @@ export default function Portfolio() {
                   <div className="w-80 h-80 rounded-full bg-gradient-to-r from-green-400 to-blue-500 p-1">
                     <div className="w-full h-full rounded-full bg-gray-900 overflow-hidden">
                       <Image
-                        src="/IMG_0144__1_-removebg-preview.png"
+                        src="/anouar-profile.png"
                         alt="Anouar Ech-Charai"
                         width={320}
                         height={320}
