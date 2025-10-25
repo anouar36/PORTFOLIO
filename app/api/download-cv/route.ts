@@ -5,27 +5,30 @@ import { readFileSync, existsSync, statSync } from 'fs';
 export async function GET(request: NextRequest) {
   try {
     // Path to the PDF file in the public directory
-    const filePath = path.join(process.cwd(), 'public', 'Anouar_Professional_CV.pdf');
-    
-    console.log('CV Download requested, file path:', filePath);
-    
-    // Check if file exists
-    if (!existsSync(filePath)) {
-      console.error('CV file not found at path:', filePath);
+    // Try both possible filenames for compatibility
+    const possibleFiles = [
+      path.join(process.cwd(), 'public', 'Professional_CV_Resume.pdf'),
+      path.join(process.cwd(), 'public', 'Anouar_Professional_CV.pdf')
+    ];
+    const foundFile = possibleFiles.find(f => existsSync(f));  
+    if (!foundFile) {
+      console.error('CV file not found at any known path:', possibleFiles);
       return new NextResponse('CV file not found', { status: 404 });
     }
     
+    console.log('CV Download requested, file path:', foundFile);
+    
     // Get file stats
-    const stats = statSync(filePath);
+    const stats = statSync(foundFile);
     console.log('CV file size:', stats.size, 'bytes');
     
     if (stats.size === 0) {
       console.error('CV file is empty');
-      return new NextResponse('CV file is empty', { status: 404 });
+      return new NextResponse('CV file is emptyi', { status: 404 });
     }
     
     // Read the file
-    const fileBuffer = readFileSync(filePath);
+    const fileBuffer = readFileSync(foundFile);
     
     console.log('CV file read successfully, buffer size:', fileBuffer.length);
     
@@ -34,7 +37,7 @@ export async function GET(request: NextRequest) {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': 'attachment; filename="/Professional_CV_Resume.pdf"',
+        'Content-Disposition': 'attachment; filename="Professional_CV_Resume.pdf"',
         'Content-Length': fileBuffer.length.toString(),
         'Cache-Control': 'no-cache',
       },

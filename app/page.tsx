@@ -63,12 +63,12 @@ const projects = [
     live: "#",
   },
   {
-    title: "Next.js Portfolio Website",
-    description: "Professional portfolio website with modern animations, responsive design, and dark mode support",
+    title: "Anouar's Portfolio v1.2.0",
+    description: "Modern portfolio website with enhanced CV download system, particle animations, and responsive design",
     image: "/projects/nextjs-portfolio.svg",
-    tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
-    github: "https://github.com/anouar36",
-    live: "#",
+    tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "Vercel"],
+    github: "https://github.com/anouar36/portfolio",
+    live: "https://portfolio-eibz.vercel.app/",
   },
   {
     title: "Java Desktop Application",
@@ -274,7 +274,7 @@ export default function Portfolio() {
                   <div className="w-80 h-80 rounded-full bg-gradient-to-r from-green-400 to-blue-500 p-1">
                     <div className="w-full h-full rounded-full bg-gray-900 overflow-hidden">
                       <Image
-                        src="/anouar-profile.png"
+                        src="/photo-AnouarEcharai.png"
                         alt="Anouar Ech-Charai"
                         width={320}
                         height={320}
